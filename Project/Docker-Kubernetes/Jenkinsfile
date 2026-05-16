@@ -1,7 +1,7 @@
 pipeline{
     agent {
       node {
-        label 'slave_1'
+        label 'slave1'
       }
     }
 
@@ -76,14 +76,14 @@ pipeline{
          stage ('Docker Build') {
                  steps {
                     script {
-                      sh "docker build -t goudsagar/webapp-app-tomcat:latest -f Project/Docker-Kubernetes/Dockerfile ."
+                      sh "docker build -t cloudarif/webapp-app-tomcat:latest -f Project/Docker-Kubernetes/Dockerfile ."
                      }
                     } 
                 }
                 stage ('Docker Push') {
                  steps{
                         sh ''' 
-			  docker push goudsagar/webapp-app-tomcat:latest
+			  docker push cloudarif/webapp-app-tomcat:latest
 	                '''
                      }      
                }
